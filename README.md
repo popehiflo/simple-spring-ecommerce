@@ -1,1 +1,1 @@
-# demo-spring-ecommerce
+# Simple Spring ecommerce
