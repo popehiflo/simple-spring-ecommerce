@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  ### Service Spring Boot application
+  #simple-ecommerce-app:
+    #container_name: simple-ecommerce-app
+    #image: simple-spring-ecommerce:1.0.0
+    #build: .
+    #environment:
+      #DATABASE_URL: jdbc:postgresql://simple-ecommerce-db:5432/db_simple_ecommerce
+      #DATABASE_USERNAME: popehiflo
+      #DATABASE_PASSWORD: postgres
+    #ports:
+      #- '8085:8080'
+    #expose:
+      #- 8080
+    #depends_on:
+      #- simple-ecommerce-db
+
+  ### Service Postgres Database
+  simple-ecommerce-db:
+    container_name: simple-ecommerce-db
+    image: postgres:15.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: db_simple_ecommerce
+      POSTGRES_USER: popehiflo
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5430:5432'
+    expose:
+      - 5432
+    command: -p 5432
